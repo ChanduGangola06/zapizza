@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:zapizza/constants/constants.dart';
 import 'package:zapizza/views/screens/splash/splash_screen.dart';
 
 void main() {
@@ -21,8 +22,9 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
+            scaffoldBackgroundColor: kOffWhite,
+            iconTheme: const IconThemeData(color: kDark),
+            primarySwatch: Colors.grey,
           ),
           home: const SplashScreen(),
         );

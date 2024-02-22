@@ -1,4 +1,30 @@
-import 'package:form_field_validator/form_field_validator.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-final phoneNumberValidator = MinLengthValidator(10,
-    errorText: 'Phone Number must be at least 10 digits long');
+String googleApiKey = '';
+
+const kPrimary = Colors.orange;
+const kPrimaryLight = Color(0xFFEF9920);
+const kSecondary = Color(0xffffa44f);
+const kSecondaryLight = Color(0xFFffe5db);
+const kTertiary = Color(0xff0078a6);
+const kGray = Color(0xff83829A);
+const kGrayLight = Color(0xffC1C0C8);
+const kLightWhite = Color(0xffFAFAFC);
+const kWhite = Color(0xfffFFFFF);
+const kDark = Color(0xff000000);
+const kRed = Color(0xffe81e4d);
+const kOffWhite = Color(0xffF3F4F8);
+
+double height = 825.h;
+double width = 375.w;
+
+const String appBaseUrl = "http://localhost:6013";
+
+final List<String> verificationReasons = [
+  'Real-time Updates: Get instant notifications about your order status.',
+  'Direct Communication: A verified number ensures seamless communication.',
+  'Enhanced Security: Protect your account and confirm orders securely.',
+  'Effortless Rescheduling: Easily address issues with a quick call.',
+  'Exclusive Offers: Stay in the loop for special deals and promotions.'
+];

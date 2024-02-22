@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zapizza/views/screens/auth/login_screen.dart';
-import 'package:zapizza/views/screens/home/home_screen.dart';
+import 'package:zapizza/views/screens/entrypoints.dart';
 import 'package:zapizza/views/widgets/rounded_button.dart';
 
 class StartScreen extends StatefulWidget {
@@ -50,7 +50,7 @@ class _StartScreenState extends State<StartScreen> {
                     RoundedButton(
                       title: 'Skip',
                       onTap: () {
-                        Get.to(() => const HomeScreen());
+                        Get.to(() => MainScreen());
                       },
                     ),
                   ],
