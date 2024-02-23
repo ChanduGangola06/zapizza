@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:get/get.dart';
 import 'package:zapizza/common/custom_button.dart';
 import 'package:zapizza/common/custom_container.dart';
 import 'package:zapizza/views/screens/profile/widgets/profile_app_bar.dart';
 import 'package:zapizza/views/screens/profile/widgets/profile_tile_widget.dart';
 import 'package:zapizza/views/screens/profile/widgets/user_info_widget.dart';
+import 'package:zapizza/views/screens/splash/start_screen.dart';
 
 import '../../../constants/constants.dart';
 
@@ -92,7 +94,7 @@ class ProfilePage extends StatelessWidget {
               SizedBox(height: 20.h),
               CustomButton(
                 onTap: () {
-                  // controller.logout();
+                  Get.offAll(() => StartScreen());
                 },
                 btnWidth: 90,
                 btnHeight: 40,

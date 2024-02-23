@@ -11,7 +11,7 @@ class UserInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.06,
+      height: height * 0.07,
       width: width,
       color: kLightWhite,
       child: Column(

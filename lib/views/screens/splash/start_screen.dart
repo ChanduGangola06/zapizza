@@ -22,8 +22,7 @@ class _StartScreenState extends State<StartScreen> {
           padding: EdgeInsets.only(left: 20.w, right: 20.w),
           child: Column(
             children: [
-              Lottie.network(
-                  'https://lottie.host/e8d11e9b-d8f4-4182-8859-94888a2029eb/wQMd4ux1sP.json'),
+              Lottie.asset('assets/anime/start.json'),
               SizedBox(height: 30.h),
               Text(
                 'Grab Your Delicious food',
@@ -44,13 +43,13 @@ class _StartScreenState extends State<StartScreen> {
                     RoundedButton(
                       title: 'Sign Up/In',
                       onTap: () {
-                        Get.to(() => const LoginScreen());
+                        Get.offAll(() => const LoginScreen());
                       },
                     ),
                     RoundedButton(
                       title: 'Skip',
                       onTap: () {
-                        Get.to(() => MainScreen());
+                        Get.offAll(() => MainScreen());
                       },
                     ),
                   ],
