@@ -29,7 +29,7 @@ Widget buildTextField(String hintText, String textType, String iconName,
               onChanged: (value) => func!(value),
               keyboardType: const TextInputType.numberWithOptions(),
               inputFormatters: [
-                LengthLimitingTextInputFormatter(10),
+                LengthLimitingTextInputFormatter(15),
               ],
               decoration: InputDecoration(
                 hintText: hintText,

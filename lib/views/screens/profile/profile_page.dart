@@ -94,7 +94,7 @@ class ProfilePage extends StatelessWidget {
               SizedBox(height: 20.h),
               CustomButton(
                 onTap: () {
-                  Get.offAll(() => StartScreen());
+                  Get.offAll(() => const StartScreen());
                 },
                 btnWidth: 90,
                 btnHeight: 40,

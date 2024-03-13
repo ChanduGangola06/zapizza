@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "876568519552",
+    "project_id": "zapizza-7255d",
+    "storage_bucket": "zapizza-7255d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876568519552:android:1bd22d8b349d6922499765",
+        "android_client_info": {
+          "package_name": "com.users.zapizza"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq_TJDKAD9-HLSg8Uufe0Q07te6Nu5DDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
