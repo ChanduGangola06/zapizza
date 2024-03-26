@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zapizza/views/screens/home/widget/card_tile.dart';
-import 'package:zapizza/views/screens/home/widget/category.dart';
-import 'package:zapizza/views/screens/home/widget/nearest.dart';
-import 'package:zapizza/views/widgets/search_input.dart';
+import 'package:zapizza/common/shimmers/homepage_shimmer.dart';
+import 'package:zapizza/views/widgets/banner_widget.dart';
+import 'package:zapizza/views/widgets/category_widget.dart';
+import 'package:zapizza/views/widgets/dashboard_textfield.dart';
+import 'package:zapizza/views/widgets/filter_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,81 +14,71 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      key: _scaffoldKey,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+        elevation: 0,
         toolbarHeight: 100.h,
-        flexibleSpace: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.only(top: 20.h, left: 30.w, right: 30.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Home',
-                          style: TextStyle(
-                              fontSize: 15.sp, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(width: 5.w),
-                        GestureDetector(
-                          onTap: () {},
-                          child: const Icon(Icons.arrow_drop_down),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 5.h),
-                    Text(
-                      'F-1 Shop No 12 Sector',
-                      style: TextStyle(color: Colors.grey, fontSize: 12.sp),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.filter_1_outlined),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+        title: CircleAvatar(
+          radius: 20.r,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20.r),
+            child: Image.asset("assets/images/avatar.png"),
           ),
         ),
+        actions: [
+          const Icon(Icons.shopping_bag_outlined, size: 25),
+          SizedBox(width: 10.w),
+          const Icon(Icons.notification_add_outlined, size: 25),
+          SizedBox(width: 20.w)
+        ],
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.only(left: 25.w, right: 25.w),
-          child: Column(
-            children: [
-              const SearchInput(),
-              SizedBox(height: 5.h),
-              Text(
-                'What\'s on your find?',
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w700),
-              ),
-              SizedBox(height: 10.h),
-              const Category(),
-              const NearestCat(),
-              SizedBox(height: 10.h),
-              const CardTile(),
-              SizedBox(height: 10.h),
-              const CardTile(),
-              SizedBox(height: 10.h),
-              const CardTile(),
-              SizedBox(height: 10.h),
-              const CardTile(),
-              SizedBox(height: 10.h),
-              const CardTile(),
-            ],
-          ),
+        child: Column(
+          children: [
+            FutureBuilder(
+              future: Future.delayed(const Duration(seconds: 2)),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Container(
+                    alignment: Alignment.center,
+                    height: MediaQuery.of(context).size.height - 200,
+                    child: const HomePageShimmer(),
+                  );
+                } else {
+                  return Column(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 22),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            DashboardTextField(),
+                            Expanded(
+                              child: FilterContainer(),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 10.h),
+                      const BannerArea(),
+                      SizedBox(height: 20.h),
+                      const CategoryWidget(),
+                      SizedBox(height: 10.h),
+                      //Featured Restaurent Text
+                      //TextRow02(),
+                    ],
+                  );
+                }
+              },
+            )
+          ],
         ),
       ),
     );

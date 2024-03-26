@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:876568519552:ios:baca435d5573886f499765",
-  "FIREBASE_PROJECT_ID": "zapizza-7255d",
-  "GCM_SENDER_ID": "876568519552"
+  "GOOGLE_APP_ID": "1:544649374290:ios:c366d80f942c59a18a8d8b",
+  "FIREBASE_PROJECT_ID": "zapizza-app",
+  "GCM_SENDER_ID": "544649374290"
 }

@@ -1,7 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:zapizza/provider/category_provider.dart';
+import 'package:zapizza/utils/toast_message.dart';
+import 'package:zapizza/views/screens/entrypoints.dart';
 
 import 'package:zapizza/views/screens/splash/start_screen.dart';
 
@@ -19,9 +24,22 @@ class _SplashScreenState extends State<SplashScreen> {
     movetoNextScreen();
   }
 
-  movetoNextScreen() {
-    Future.delayed(const Duration(seconds: 2), () {
-      Get.offAll(() => const StartScreen());
+  movetoNextScreen() async {
+    Future.delayed(const Duration(seconds: 0), () {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+          Provider.of<CategoryProvider>(context, listen: false)
+              .fetchCategories();
+          Get.offAll(() => const MainScreen());
+          ToastMessage().toastMessage('Logged in Successfully!');
+        });
+      } else {
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+          Get.offAll(() => const StartScreen());
+          ToastMessage().toastMessage('Please Login!');
+        });
+      }
     });
   }
 

@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "876568519552",
-    "project_id": "zapizza-7255d",
-    "storage_bucket": "zapizza-7255d.appspot.com"
+    "project_number": "544649374290",
+    "project_id": "zapizza-app",
+    "storage_bucket": "zapizza-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:876568519552:android:1bd22d8b349d6922499765",
+        "mobilesdk_app_id": "1:544649374290:android:bd8e6279aa77717a8a8d8b",
         "android_client_info": {
-          "package_name": "com.users.zapizza"
+          "package_name": "com.app.zapizza"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCq_TJDKAD9-HLSg8Uufe0Q07te6Nu5DDo"
+          "current_key": "AIzaSyAzRI3UE9I_uVVs7yTU9FldSO9Gnd83U8Y"
         }
       ],
       "services": {

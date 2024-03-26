@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:get/get.dart';
-import 'package:zapizza/common/custom_button.dart';
-import 'package:zapizza/common/custom_container.dart';
-import 'package:zapizza/views/screens/profile/widgets/profile_app_bar.dart';
-import 'package:zapizza/views/screens/profile/widgets/profile_tile_widget.dart';
-import 'package:zapizza/views/screens/profile/widgets/user_info_widget.dart';
-import 'package:zapizza/views/screens/splash/start_screen.dart';
-
-import '../../../constants/constants.dart';
+import 'package:zapizza/views/screens/auth/login_screen.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -17,93 +9,254 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kPrimary,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(40.h),
-        child: const ProfileAppBar(),
-      ),
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: CustomContainer(
-          containerContent: Column(
-            children: [
-              const UserInfoWidget(),
-              SizedBox(height: 10.h),
-              Container(
-                height: 210.h,
-                decoration: const BoxDecoration(color: kLightWhite),
-                child: ListView(
-                  padding: EdgeInsets.zero,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    ProfileTileWidget(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/avatar.png"),
+                    radius: 40,
+                  ),
+                ),
+                SizedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Danish Awan",
+                        style: TextStyle(
+                            fontSize: 17.sp,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black87),
+                      ),
+                      const SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                        "danishawan@gmail.com",
+                        style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black54),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
+            //
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  ListTile(
+                    title: Text(
+                      "My Orders",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+                    ),
+                    leading: Container(
+                      height: 25,
+                      width: 25,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/myorders.png"))),
+                    ),
+                    onTap: () {
+                      // Navigator.push(
+                      //     context,
+                      //     PageTransition(
+                      //         type: PageTransitionType.rightToLeft,
+                      //         child: OrderPage()));
+                    },
+                  ),
+                  ListTile(
+                    title: Text(
+                      "My Profile",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+                    ),
+                    leading: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image:
+                                  AssetImage("assets/images/myprofile.png"))),
+                    ),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Delivery Address",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+                    ),
+                    leading: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  "assets/images/deliveryaddress.png"))),
+                    ),
+                    onTap: () {
+                      // Navigator.push(
+                      //     context,
+                      //     PageTransition(
+                      //         type: PageTransitionType.rightToLeft,
+                      //         child: AddressScreen()));
+                    },
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Payment Method",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+                    ),
+                    leading: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  "assets/images/paymentmethod.png"))),
+                    ),
+                    // onTap: () {
+                    //   Navigator.push(context,
+                    //       MaterialPageRoute(builder: (BuildContext context) {
+                    //     return OrderPage();
+                    //   }));
+                    // },
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Contact Us",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+                    ),
+                    leading: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image:
+                                  AssetImage("assets/images/contactus.png"))),
+                    ),
+                    onTap: () {
+                      // Add your navigation logic here
+                      Navigator.pop(context); // Close the drawer
+                    },
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Setting",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+                    ),
+                    leading: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/setting.png"))),
+                    ),
+                    onTap: () {
+                      // Add your navigation logic here
+                      Navigator.pop(context); // Close the drawer
+                    },
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Helps",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black54),
+                    ),
+                    leading: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/helps.png"))),
+                    ),
+                    onTap: () {
+                      // Add your navigation logic here
+                      Navigator.pop(context); // Close the drawer
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Divider(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: GestureDetector(
                       onTap: () {
-                        //Get.to(() => const LoginRedirect());
+                        Get.offAll(() => const LoginScreen());
                       },
-                      title: "My Orders",
-                      icon: Ionicons.fast_food_outline,
+                      child: Container(
+                        height: 45,
+                        width: 120,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 240, 99, 18),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Row(children: [
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            height: 30,
+                            width: 35,
+                            decoration: const BoxDecoration(
+                                color: Colors.white, shape: BoxShape.circle),
+                            child: const Icon(
+                              Icons.login,
+                              color: Colors.orange,
+                              size: 20,
+                            ),
+                          ),
+                          Text(
+                            "  Log out",
+                            style: TextStyle(
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white),
+                          ),
+                        ]),
+                      ),
                     ),
-                    ProfileTileWidget(
-                      onTap: () {},
-                      title: "My Favorite Places",
-                      icon: Ionicons.heart_outline,
-                    ),
-                    ProfileTileWidget(
-                      onTap: () {},
-                      title: "Review",
-                      icon: Ionicons.chatbubble_outline,
-                    ),
-                    ProfileTileWidget(
-                      onTap: () {},
-                      title: "Coupons",
-                      icon: MaterialCommunityIcons.tag_outline,
-                    ),
-                  ],
-                ),
+                  )
+                ],
               ),
-              SizedBox(height: 15.h),
-              Container(
-                height: 210.h,
-                decoration: const BoxDecoration(color: kLightWhite),
-                child: ListView(
-                  padding: EdgeInsets.zero,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    ProfileTileWidget(
-                      onTap: () {},
-                      title: "Shipping Address",
-                      icon: SimpleLineIcons.location_pin,
-                    ),
-                    ProfileTileWidget(
-                      onTap: () {},
-                      title: "Sevice Center",
-                      icon: AntDesign.customerservice,
-                    ),
-                    ProfileTileWidget(
-                      onTap: () {},
-                      title: "Coupons",
-                      icon: MaterialIcons.rss_feed,
-                    ),
-                    ProfileTileWidget(
-                      onTap: () {},
-                      title: "Settings",
-                      icon: AntDesign.setting,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20.h),
-              CustomButton(
-                onTap: () {
-                  Get.offAll(() => const StartScreen());
-                },
-                btnWidth: 90,
-                btnHeight: 40,
-                btnColor: kRed,
-                text: "Logout",
-                radius: 10.r,
-              )
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

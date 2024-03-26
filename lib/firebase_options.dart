@@ -26,7 +26,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -50,19 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCq_TJDKAD9-HLSg8Uufe0Q07te6Nu5DDo',
-    appId: '1:876568519552:android:1bd22d8b349d6922499765',
-    messagingSenderId: '876568519552',
-    projectId: 'zapizza-7255d',
-    storageBucket: 'zapizza-7255d.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDGnq0rKXsljeu0emES-Ll5um2bRsoaDHQ',
-    appId: '1:876568519552:ios:baca435d5573886f499765',
-    messagingSenderId: '876568519552',
-    projectId: 'zapizza-7255d',
-    storageBucket: 'zapizza-7255d.appspot.com',
-    iosBundleId: 'com.users.zapizza',
+    apiKey: 'AIzaSyAzRI3UE9I_uVVs7yTU9FldSO9Gnd83U8Y',
+    appId: '1:544649374290:android:bd8e6279aa77717a8a8d8b',
+    messagingSenderId: '544649374290',
+    projectId: 'zapizza-app',
+    storageBucket: 'zapizza-app.appspot.com',
   );
 }

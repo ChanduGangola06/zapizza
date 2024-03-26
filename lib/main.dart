@@ -1,10 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:zapizza/provider/login_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:zapizza/controllers/banner_controller.dart';
+import 'package:zapizza/controllers/tab_index_controller.dart';
+import 'package:zapizza/provider/category_provider.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:provider/provider.dart';
 import 'package:zapizza/constants/constants.dart';
 import 'package:zapizza/views/screens/splash/splash_screen.dart';
 
@@ -16,7 +18,7 @@ Future<void> main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => LoginProvider()),
+        ChangeNotifierProvider(create: (_) => CategoryProvider()),
       ],
       child: const MyApp(),
     ),
@@ -42,6 +44,10 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.grey,
           ),
           home: const SplashScreen(),
+          initialBinding: BindingsBuilder(() {
+            Get.put<BannerController>(BannerController());
+            Get.put<TabIndexController>(TabIndexController());
+          }),
         );
       },
     );
