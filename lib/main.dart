@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:zapizza/controllers/banner_controller.dart';
 import 'package:zapizza/controllers/tab_index_controller.dart';
 import 'package:zapizza/provider/category_provider.dart';
+import 'package:zapizza/provider/food_provider.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,6 +20,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
+        ChangeNotifierProvider(create: (_) => FoodProvider()),
       ],
       child: const MyApp(),
     ),

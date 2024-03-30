@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -140,13 +142,13 @@ class _FavouritePageState extends State<FavouritePage> {
                         controller: tabController,
                         children: [
                           Container(
-                            child: Text('BreakFast'),
+                            child: const Text('BreakFast'),
                           ),
                           Container(
-                            child: Text('Lunch'),
+                            child: const Text('Lunch'),
                           ),
                           Container(
-                            child: Text('Dinner'),
+                            child: const Text('Dinner'),
                           ),
                         ],
                       ),

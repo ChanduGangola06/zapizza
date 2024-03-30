@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zapizza/common/shimmers/homepage_shimmer.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:zapizza/views/screens/home/widget/food_card.dart';
 import 'package:zapizza/views/widgets/banner_widget.dart';
 import 'package:zapizza/views/widgets/category_widget.dart';
 import 'package:zapizza/views/widgets/dashboard_textfield.dart';
@@ -42,42 +43,70 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            FutureBuilder(
-              future: Future.delayed(const Duration(seconds: 2)),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Container(
-                    alignment: Alignment.center,
-                    height: MediaQuery.of(context).size.height - 200,
-                    child: const HomePageShimmer(),
-                  );
-                } else {
-                  return Column(
+            Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 22),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 22),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            DashboardTextField(),
-                            Expanded(
-                              child: FilterContainer(),
-                            ),
-                          ],
+                      DashboardTextField(),
+                      Expanded(
+                        child: FilterContainer(),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                const BannerArea(),
+                SizedBox(height: 20.h),
+                const CategoryWidget(),
+                SizedBox(height: 10.h),
+                //Featured Restaurent Text
+
+                SizedBox(height: 10.h),
+                //Popular Items Text
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Popular Items",
+                        style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                      SizedBox(height: 10.h),
-                      const BannerArea(),
-                      SizedBox(height: 20.h),
-                      const CategoryWidget(),
-                      SizedBox(height: 10.h),
-                      //Featured Restaurent Text
-                      //TextRow02(),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'See All',
+                          style:
+                              TextStyle(fontSize: 13.sp, color: Colors.orange),
+                        ),
+                      ),
                     ],
-                  );
-                }
-              },
-            )
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                const FoodCard(),
+              ],
+            ),
+            // FutureBuilder(
+            //   future: Future.delayed(const Duration(seconds: 2)),
+            //   builder: (context, snapshot) {
+            //     if (snapshot.connectionState == ConnectionState.waiting) {
+            //       return Container(
+            //         alignment: Alignment.center,
+            //         height: MediaQuery.of(context).size.height - 200,
+            //         child: const HomePageShimmer(),
+            //       );
+            //     } else {
+            //       return
+            //     }
+            //   },
+            // ),
           ],
         ),
       ),

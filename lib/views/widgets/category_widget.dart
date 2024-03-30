@@ -21,7 +21,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   Widget build(BuildContext context) {
     return Consumer<CategoryProvider>(
       builder: (context, value, child) {
-        return Container(
+        return SizedBox(
           height: 100.h,
           child: ListView(
             scrollDirection: Axis.horizontal,

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields, prefer_collection_literals, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:zapizza/models/category_models.dart';
