@@ -1,9 +1,13 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:zapizza/common/helpers/cache_helpers.dart';
 import 'package:zapizza/constants/constants.dart';
+import 'package:zapizza/utils/user_constant.dart';
 import 'package:zapizza/views/screens/auth/wrapper.dart';
 import 'package:zapizza/views/widgets/rounded_button.dart';
 import 'package:otp_timer_button/otp_timer_button.dart';
@@ -67,6 +71,8 @@ class _OtpScreenState extends State<OtpScreen> {
           PhoneAuthProvider.credential(verificationId: vId, smsCode: otpCode);
 
       final User? user = (await auth.signInWithCredential(credential)).user;
+      UserConstants.userId = user!.uid;
+      CacheHelper.save(key: 'user_id', value: user.uid);
 
       if (user != null) {
         Get.offAll(() => const Wrapper());

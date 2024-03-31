@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zapizza/constants/colors.dart';
+import 'package:zapizza/constants/constants.dart';
 
 Widget buildTextField(String hintText, String textType, String iconName,
     void Function(String value)? func) {
@@ -13,7 +13,7 @@ Widget buildTextField(String hintText, String textType, String iconName,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(15.w)),
-          border: Border.all(color: AppColors.primaryFourthElementText)),
+          border: Border.all(color: kPrimaryLight)),
       child: Row(
         children: [
           Container(
@@ -42,11 +42,10 @@ Widget buildTextField(String hintText, String textType, String iconName,
                     borderSide: BorderSide(color: Colors.transparent)),
                 focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.transparent)),
-                hintStyle: const TextStyle(
-                    color: AppColors.primarySecondaryElementText),
+                hintStyle: const TextStyle(color: kPrimaryLight),
               ),
               style: TextStyle(
-                  color: AppColors.primaryText,
+                  color: kGray,
                   fontFamily: "Avenir",
                   fontWeight: FontWeight.normal,
                   fontSize: 14.sp),

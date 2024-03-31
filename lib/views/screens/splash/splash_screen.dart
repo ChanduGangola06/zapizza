@@ -1,12 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:zapizza/common/helpers/cache_helpers.dart';
+import 'package:zapizza/provider/cart_provider.dart';
 import 'package:zapizza/provider/category_provider.dart';
-import 'package:zapizza/provider/food_provider.dart';
+import 'package:zapizza/provider/main_provider.dart';
 import 'package:zapizza/utils/toast_message.dart';
+import 'package:zapizza/utils/user_constant.dart';
 import 'package:zapizza/views/screens/entrypoints.dart';
 
 import 'package:zapizza/views/screens/splash/start_screen.dart';
@@ -22,17 +26,19 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    UserConstants.userId = CacheHelper.get('user_id') ?? '';
     movetoNextScreen();
   }
 
   movetoNextScreen() async {
     Future.delayed(const Duration(seconds: 0), () {
-      User? user = FirebaseAuth.instance.currentUser;
-      if (user != null) {
+      if (UserConstants.userId != '') {
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
           Provider.of<CategoryProvider>(context, listen: false)
               .fetchCategories();
-          Provider.of<FoodProvider>(context, listen: false).getFoods();
+          Provider.of<MainProvider>(context, listen: false).getFavoriteDishes();
+          Provider.of<CartProvider>(context, listen: false)
+              .makeOrder(location: '', estimatedTime: '', paymentMethod: '');
           Get.offAll(() => const MainScreen());
           ToastMessage().toastMessage('Logged in Successfully!');
         });
@@ -40,12 +46,14 @@ class _SplashScreenState extends State<SplashScreen> {
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
           Provider.of<CategoryProvider>(context, listen: false)
               .fetchCategories();
-          Provider.of<FoodProvider>(context, listen: false).getFoods();
+          Provider.of<MainProvider>(context, listen: false).getFavoriteDishes();
+
           Get.offAll(() => const StartScreen());
           ToastMessage().toastMessage('Please Login!');
         });
       }
     });
+    // UserConstants.userId = CacheHelper.get('user_id') ?? '';
   }
 
   @override

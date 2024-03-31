@@ -1,24 +1,31 @@
 class FoodModel {
-  final String productName;
-  final String description;
-  final String catgoryName;
-  final num productPrice;
-  final List imageUrl;
-  final String storeId;
-  int quantity;
-  final String productId;
-  final String productSize;
-  final num discount;
+  String? id;
+  String? name;
+  String? category;
+  String? imageUrl;
+  String? price;
 
-  FoodModel(
-      {required this.productName,
-      required this.productPrice,
-      required this.catgoryName,
-      required this.imageUrl,
-      required this.quantity,
-      required this.productId,
-      required this.productSize,
-      required this.discount,
-      required this.description,
-      required this.storeId});
+  FoodModel({
+    this.id,
+    this.name,
+    this.category,
+    this.imageUrl,
+    this.price,
+  });
+
+  FoodModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    category = json['category'];
+    imageUrl = json['image_url'];
+    price = json['price'];
+  }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'category': category,
+        'image_url': imageUrl,
+        'price': price,
+      };
 }

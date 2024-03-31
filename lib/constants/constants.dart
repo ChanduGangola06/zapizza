@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-String googleApiKey = '';
-
 const kPrimary = Colors.orange;
 const kPrimaryLight = Color(0xFFEF9920);
 const kSecondary = Color(0xffffa44f);
@@ -21,8 +19,6 @@ const secondary = Color(0xff173143);
 
 double height = 825.h;
 double width = 375.w;
-
-const String appBaseUrl = "http://localhost:6013";
 
 final List<String> verificationReasons = [
   'Real-time Updates: Get instant notifications about your order status.',

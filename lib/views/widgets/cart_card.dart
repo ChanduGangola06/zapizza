@@ -29,13 +29,13 @@ class _CartCardState extends State<CartCard> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
+      child: SizedBox(
         height: 120.h,
         width: 375.w,
         child: Row(children: [
           Padding(
             padding: const EdgeInsets.all(0.0),
-            child: Container(
+            child: SizedBox(
               height: 70.h,
               width: 70.w,
               child: Image.asset(
